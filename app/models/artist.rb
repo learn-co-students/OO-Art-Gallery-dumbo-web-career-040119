@@ -38,7 +38,7 @@ class Artist
   # Returns an integer that is the total years of experience of all artists
   # For the sum of something, use REDUCE!
   # Reduce Syntax:
-  #    array.reduce(starting_value) do |sum, placeholder_of_what_you_want_to_add|
+  #    array.reduce(starting_value) do |sum, where_your_value_is_located|
   #       sum + actual_value_you_want_to_add
   def self.total_experience
     self.all.reduce(0) do |sum, artist|
@@ -48,6 +48,7 @@ class Artist
 
   # Returns an instance of the artist with the highest amount of paintings
   # per year of experience.
+  # Max_by will return the highest value for the condition provided.
   def self.most_prolific
     self.all.max_by do |artist|
       artist.paintings.length / artist.years_experience
