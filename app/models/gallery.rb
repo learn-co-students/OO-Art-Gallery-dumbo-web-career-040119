@@ -32,10 +32,6 @@ class Gallery
     artist_names = self.artists.map(&:name)
   end
 
-  def paintings_price
-    all_prices = self.paintings.map(&:price)
-  end
-
   def most_expensive_painting
     paintings.max_by do |painting|
       painting.price

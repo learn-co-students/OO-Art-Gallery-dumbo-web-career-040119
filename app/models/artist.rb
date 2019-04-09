@@ -1,13 +1,14 @@
 class Artist
 
   attr_reader :name, :years_experience, :painting
-  attr_accessor :title, :price, :gallery
+  attr_accessor :title, :price, :gallery, :prolificness
 
   @@all = []
 
   def initialize(name, years_experience)
     @name = name
     @years_experience = years_experience
+    @prolificness = prolificness
     @@all << self
   end
 
@@ -38,8 +39,15 @@ class Artist
     exp.inject(0){|sum,x| sum + x }
   end
 
-  def self.most_prolific
-    @@all.max_by{|k,v| v}
+  def how_prolific
+    how_profilic = self.paintings.length.to_f / self.years_experience.to_f
+    # how_profilic = @prolificness
+    self.prolificness = how_profilic
+  end
+
+  def self.most_prolific # Returns an instance of the artist with the highest amount of paintings per year of experience.
+    prolific_index = @@all.each {|artist| artist.how_prolific}
+    the_one_and_only = prolific_index.max_by{|k,v| v}
   end
 
 end
