@@ -14,7 +14,11 @@ class Painting
   end
 
   def self.total_price
+    self.all.map do |painting|
+      @@total_price += painting.price 
+    end
     @@total_price 
+    #binding.pry
   end
 
   def self.all

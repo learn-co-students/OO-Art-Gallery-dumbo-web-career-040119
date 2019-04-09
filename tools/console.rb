@@ -29,7 +29,10 @@ Artist.total_experience
 
 jc.most_expensive_painting
 
+
 Artist.most_prolific
+
+Painting.total_price
 
 binding.pry
 
