@@ -27,7 +27,7 @@ class Artist
   end
 
   def self.most_prolific
-    self.all.max_by {|artist| artist.years_experience/artist.paintings.length.to_f}
+    @@all.max_by {|artist| artist.paintings.length.to_f/artist.years_experience}
   end
 
   def galleries
